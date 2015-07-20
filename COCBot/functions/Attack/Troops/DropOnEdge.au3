@@ -94,9 +94,9 @@ Func DropOnEdge($troop, $edge, $number, $slotsPerEdge = 0, $edge2 = -1, $x = -1,
 			Else
 				$nbTroopsLeft -= $nbtroopPerSlot
 			EndIf
-			If $FourFingers <> 5 then ; if $nbSide = 5
+			;If $FourFingers <> 5 then ; if $nbSide = 5
 			If _Sleep(SetSleep(0)) Then Return
-			Endif
+			;Endif
 		Next
 	EndIf
 EndFunc   ;==>DropOnEdge

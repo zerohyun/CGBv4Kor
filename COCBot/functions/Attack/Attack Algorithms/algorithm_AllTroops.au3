@@ -159,24 +159,22 @@ Func algorithm_AllTroops() ;Attack Algorithm for all existing troops
 #ce
 	if $nbSides = 5 then ;change max wave for bar and arch to 1
 
-	Local $listInfoDeploy[14][5] = [[$eGiant, $nbSides, 1, 1, 0] _
+	Local $listInfoDeploy[12][5] = [[$eGiant, $nbSides, 1, 1, 2] _
 			, [$eBarb, $nbSides, 1, 1, 0] _
 			, [$eGiant, $nbSides, 2, 2, 0] _
 			, [$eWall, $nbSides, 1, 1, 1] _
 			, [$eArch, $nbSides, 1, 1, 0] _
-			, [$eBarb, $nbSides, 2, 2, 0] _
 			, [$eGobl, $nbSides, 1, 2, 0] _
 			, ["CC", 1, 1, 1, 1] _
 			, [$eHogs, $nbSides, 1, 1, 1] _
 			, [$eWiza, $nbSides, 1, 1, 0] _
 			, [$eMini, $nbSides, 1, 1, 0] _
-			, [$eArch, $nbSides, 2, 2, 0] _
 			, [$eGobl, $nbSides, 2, 2, 0] _
 			, ["HEROES", 1, 2, 1, 1] _
 			]
 	else
 
-	Local $listInfoDeploy[13][5] = [[$eGiant, $nbSides, 1, 1, 0] _
+	Local $listInfoDeploy[13][5] = [[$eGiant, $nbSides, 1, 1, 2] _
 			, [$eBarb, $nbSides, 1, 2, 0] _
 			, [$eWall, $nbSides, 1, 1, 1] _
 			, [$eArch, $nbSides, 1, 2, 0] _
