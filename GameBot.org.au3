@@ -164,9 +164,7 @@ Func runBot() ;Bot that runs everything in order
 				If _Sleep(500) Then Return
 			    checkMainScreen(False)
 				If $Restart = True Then ContinueLoop
-			SetTrainTroops()
 			Train()
-			RevertTrainTroops()
 				If _Sleep(500) Then Return
 			    checkMainScreen(False)
 				If $Restart = True Then ContinueLoop

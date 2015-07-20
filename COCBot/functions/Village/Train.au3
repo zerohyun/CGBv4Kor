@@ -781,23 +781,3 @@ Func IsOdd($chkbrrnum)
 		return False
 	EndIf
 EndFunc
-
-Func SetTrainTroops()
-	If $OptTrophyMode = 1 Then
-		for $i=0 to Ubound($THSnipeTroopGroup,1) - 1
-			$TroopName[$i] = $THSnipeTroopGroup[$i][0]
-			$TroopNamePosition[$i] = $THSnipeTroopGroup[$i][1]
-			$TroopHeight[$i] = $THSnipeTroopGroup[$i][2]
-			$TroopRotateIndex[$i] = $THSnipeTroopGroup[$i][3]
-		next
-	EndIf
-EndFunc
-
-Func RevertTrainTroops()
-	for $i=0 to Ubound($TroopGroup,1) - 1
-		$TroopName[$i] = $TroopGroup[$i][0]
-		$TroopNamePosition[$i] = $TroopGroup[$i][1]
-		$TroopHeight[$i] = $TroopGroup[$i][2]
-		$TroopRotateIndex[$i] = $TroopGroup[$i][3]
-	next
-EndFunc
