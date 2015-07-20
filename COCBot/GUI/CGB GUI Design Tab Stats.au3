@@ -23,115 +23,115 @@ Global $iPrevState[$LastControlToHide + 1]
 ;~ -------------------------------------------------------------
 ;~ Stats Tab
 ;~ -------------------------------------------------------------
-$tabStats = GUICtrlCreateTabItem("¾àÅ»ÇöÈ²")
+$tabStats = GUICtrlCreateTabItem("ì•½íƒˆí˜„í™©")
 Local $x = 30, $y = 150
-	$grpResourceOnStart = GUICtrlCreateGroup("ÃÊ±âÇöÈ²", $x - 20, $y - 20, 110, 105)
-		$lblResultStatsTemp = GUICtrlCreateLabel("Ã¹ ½ÇÇà½Ã" & @CRLF & "¸¶À»Á¤º¸¸¦" & @CRLF & "ÀÔ·ÂÇÕ´Ï´Ù.", $x - 5, $y + 5, 100, 65, BITOR($SS_LEFT, $BS_MULTILINE))
+	$grpResourceOnStart = GUICtrlCreateGroup("ì´ˆê¸°í˜„í™©", $x - 20, $y - 20, 110, 105)
+		$lblResultStatsTemp = GUICtrlCreateLabel("ì²« ì‹¤í–‰ì‹œ" & @CRLF & "ë§ˆì„ì •ë³´ë¥¼" & @CRLF & "ì…ë ¥í•©ë‹ˆë‹¤.", $x - 5, $y + 5, 100, 65, BITOR($SS_LEFT, $BS_MULTILINE))
 		GUICtrlCreateIcon ($pIconLib, $eIcnGold, $x + 60, $y, 16, 16)
 		$lblResultGoldStart = GUICtrlCreateLabel("", $x, $y + 2, 55, 17, $SS_RIGHT)
-			$txtTip = "º¿ ½ÇÇà½Ã º¸À¯ÇÑ '°ñµå'¾ç"
+			$txtTip = "ë´‡ ì‹¤í–‰ì‹œ ë³´ìœ í•œ 'ê³¨ë“œ'ì–‘"
 			GUICtrlSetTip(-1, $txtTip)
 		$y +=20
 		GUICtrlCreateIcon ($pIconLib, $eIcnElixir, $x + 60, $y, 16, 16)
 		$lblResultElixirStart = GUICtrlCreateLabel("", $x, $y + 2, 55, 17, $SS_RIGHT)
-			$txtTip = "º¿ ½ÇÇà½Ã º¸À¯ÇÑ '¿¤¸¯¼­'¾ç"
+			$txtTip = "ë´‡ ì‹¤í–‰ì‹œ ë³´ìœ í•œ 'ì—˜ë¦­ì„œ'ì–‘"
 			GUICtrlSetTip(-1, $txtTip)
 		$y +=20
 		$picResultDEStart = GUICtrlCreateIcon ($pIconLib, $eIcnDark, $x + 60, $y, 16, 16)
 		$lblResultDEStart = GUICtrlCreateLabel("", $x, $y + 2, 55, 17, $SS_RIGHT)
-			$txtTip = "º¿ ½ÇÇà½Ã º¸À¯ÇÑ '´ÙÅ©¿¤¸¯¼­'¾ç"
+			$txtTip = "ë´‡ ì‹¤í–‰ì‹œ ë³´ìœ í•œ 'ë‹¤í¬ì—˜ë¦­ì„œ'ì–‘"
 			GUICtrlSetTip(-1, $txtTip)
 		$y +=20
 		GUICtrlCreateIcon ($pIconLib, $eIcnTrophy, $x + 60, $y, 16, 16)
 		$lblResultTrophyStart = GUICtrlCreateLabel("", $x, $y + 2, 55, 17, $SS_RIGHT)
-			$txtTip = "º¿ ½ÇÇà½Ã º¸À¯ÇÑ 'Æ®·ÎÇÇ'"
+			$txtTip = "ë´‡ ì‹¤í–‰ì‹œ ë³´ìœ í•œ 'íŠ¸ë¡œí”¼'"
 			GUICtrlSetTip(-1, $txtTip)
 	GUICtrlCreateGroup("", -99, -99, 1, 1)
 
 	$x = 145
 	$y = 150
-	$grpLastAttack = GUICtrlCreateGroup("ÃÖ±Ù¾àÅ»ÇöÈ²", $x - 20, $y - 20, 110, 105)
-		$lblLastAttackTemp = GUICtrlCreateLabel("¸Å °ø°İ¸¶´Ù" & @CRLF & "¾àÅ»ÇöÈ²À»" & @CRLF & "ÃÖ½ÅÈ­ÇÏ¿©" & @CRLF & "ÀÔ·ÂÇÕ´Ï´Ù.", $x - 5, $y + 5, 100, 65, BITOR($SS_LEFT, $BS_MULTILINE))
+	$grpLastAttack = GUICtrlCreateGroup("ìµœê·¼ì•½íƒˆí˜„í™©", $x - 20, $y - 20, 110, 105)
+		$lblLastAttackTemp = GUICtrlCreateLabel("ë§¤ ê³µê²©ë§ˆë‹¤" & @CRLF & "ì•½íƒˆí˜„í™©ì„" & @CRLF & "ìµœì‹ í™”í•˜ì—¬" & @CRLF & "ì…ë ¥í•©ë‹ˆë‹¤.", $x - 5, $y + 5, 100, 65, BITOR($SS_LEFT, $BS_MULTILINE))
 		GUICtrlCreateIcon ($pIconLib, $eIcnGold, $x + 60, $y, 16, 16)
 		$lblGoldLastAttack = GUICtrlCreateLabel("", $x, $y + 2, 55, 17, $SS_RIGHT)
-			$txtTip = "¸¶Áö¸· °ø°İ¿¡¼­ È¹µæÇÑ '°ñµå'¾ç"
+			$txtTip = "ë§ˆì§€ë§‰ ê³µê²©ì—ì„œ íšë“í•œ 'ê³¨ë“œ'ì–‘"
 			GUICtrlSetTip(-1, $txtTip)
 		$y +=20
 		GUICtrlCreateIcon ($pIconLib, $eIcnElixir, $x + 60, $y, 16, 16)
 		$lblElixirLastAttack = GUICtrlCreateLabel("", $x, $y + 2, 55, 17, $SS_RIGHT)
-			$txtTip = "¸¶Áö¸· °ø°İ¿¡¼­ È¹µæÇÑ '¿¤¸¯¼­'¾ç"
+			$txtTip = "ë§ˆì§€ë§‰ ê³µê²©ì—ì„œ íšë“í•œ 'ì—˜ë¦­ì„œ'ì–‘"
 			GUICtrlSetTip(-1, $txtTip)
 		$y +=20
 		$picDarkLastAttack = GUICtrlCreateIcon ($pIconLib, $eIcnDark, $x + 60, $y, 16, 16)
 		$lblDarkLastAttack = GUICtrlCreateLabel("", $x, $y + 2, 55, 17, $SS_RIGHT)
-			$txtTip = "¸¶Áö¸· °ø°İ¿¡¼­ È¹µæÇÑ '´ÙÅ©¿¤¸¯¼­'¾ç"
+			$txtTip = "ë§ˆì§€ë§‰ ê³µê²©ì—ì„œ íšë“í•œ 'ë‹¤í¬ì—˜ë¦­ì„œ'ì–‘"
 			GUICtrlSetTip(-1, $txtTip)
 		$y +=20
 		GUICtrlCreateIcon ($pIconLib, $eIcnTrophy, $x + 60, $y, 16, 16)
 		$lblTrophyLastAttack = GUICtrlCreateLabel("", $x, $y + 2, 55, 17, $SS_RIGHT)
-			$txtTip = "¸¶Áö¸· °ø°İ¿¡¼­ È¹µæÇÑ 'Æ®·ÎÇÇ'"
+			$txtTip = "ë§ˆì§€ë§‰ ê³µê²©ì—ì„œ íšë“í•œ 'íŠ¸ë¡œí”¼'"
 			GUICtrlSetTip(-1, $txtTip)
 	GUICtrlCreateGroup("", -99, -99, 1, 1)
 	$x = 260
 	$y = 150
-	$grpTotalLoot = GUICtrlCreateGroup("ÃÑ¾àÅ»ÇöÈ²", $x - 20, $y - 20, 110, 105)
-		$lblTotalLootTemp = GUICtrlCreateLabel("¸Å °ø°İ¸¶´Ù" & @CRLF & "¾àÅ»ÇöÈ²À»" & @CRLF & "ÃÖ½ÅÈ­ÇÏ¿©" & @CRLF & "ÀÔ·ÂÇÕ´Ï´Ù.", $x - 5, $y + 5, 100, 65, BITOR($SS_LEFT, $BS_MULTILINE))
+	$grpTotalLoot = GUICtrlCreateGroup("ì´ì•½íƒˆí˜„í™©", $x - 20, $y - 20, 110, 105)
+		$lblTotalLootTemp = GUICtrlCreateLabel("ë§¤ ê³µê²©ë§ˆë‹¤" & @CRLF & "ì•½íƒˆí˜„í™©ì„" & @CRLF & "ìµœì‹ í™”í•˜ì—¬" & @CRLF & "ì…ë ¥í•©ë‹ˆë‹¤.", $x - 5, $y + 5, 100, 65, BITOR($SS_LEFT, $BS_MULTILINE))
 		GUICtrlCreateIcon ($pIconLib, $eIcnGold, $x + 60, $y, 16, 16)
-		$lblGoldLoot =  GUICtrlCreateLabel("", $x, $y + 2, 55, 17, $SS_RIGHT)
-			$txtTip = "Áö±İ±îÁö È¹µæÇÑ ÃÑ '°ñµå'¾ç" & @CRLF & "(¾÷±×·¹ÀÌµå¿¡ ¼Ò¸ğµÈ ÀÚ¿øµµ Æ÷ÇÔµÇ¾î ³ªÅ¸³³´Ï´Ù.)"
+		$lblGoldLoot =  GUICtrlCreateLabel("", $x - 5, $y + 2, 60, 17, $SS_RIGHT)
+			$txtTip = "ì§€ê¸ˆê¹Œì§€ íšë“í•œ ì´ 'ê³¨ë“œ'ì–‘" & @CRLF & "(ì—…ê·¸ë ˆì´ë“œì— ì†Œëª¨ëœ ìì›ë„ í¬í•¨ë˜ì–´ ë‚˜íƒ€ë‚©ë‹ˆë‹¤.)"
 			GUICtrlSetTip(-1, $txtTip)
 		$y +=20
 		GUICtrlCreateIcon ($pIconLib, $eIcnElixir, $x + 60, $y, 16, 16)
-		$lblElixirLoot =  GUICtrlCreateLabel("", $x, $y + 2, 55, 17, $SS_RIGHT)
-			$txtTip = "Áö±İ±îÁö È¹µæÇÑ ÃÑ '¿¤¸¯¼­'¾ç" & @CRLF & "(¾÷±×·¹ÀÌµå¿¡ ¼Ò¸ğµÈ ÀÚ¿øµµ Æ÷ÇÔµÇ¾î ³ªÅ¸³³´Ï´Ù.)"
+		$lblElixirLoot =  GUICtrlCreateLabel("", $x - 5, $y + 2, 60, 17, $SS_RIGHT)
+			$txtTip = "ì§€ê¸ˆê¹Œì§€ íšë“í•œ ì´ 'ì—˜ë¦­ì„œ'ì–‘" & @CRLF & "(ì—…ê·¸ë ˆì´ë“œì— ì†Œëª¨ëœ ìì›ë„ í¬í•¨ë˜ì–´ ë‚˜íƒ€ë‚©ë‹ˆë‹¤.)"
 			GUICtrlSetTip(-1, $txtTip)
 		$y +=20
 		$picDarkLoot = GUICtrlCreateIcon ($pIconLib, $eIcnDark, $x + 60, $y, 16, 16)
-		$lblDarkLoot =  GUICtrlCreateLabel("", $x, $y + 2, 55, 17, $SS_RIGHT)
-			$txtTip = "Áö±İ±îÁö È¹µæÇÑ ÃÑ '´ÙÅ©¿¤¸¯¼­'¾ç" & @CRLF & "(¾÷±×·¹ÀÌµå¿¡ ¼Ò¸ğµÈ ÀÚ¿øµµ Æ÷ÇÔµÇ¾î ³ªÅ¸³³´Ï´Ù.)"
+		$lblDarkLoot =  GUICtrlCreateLabel("", $x - 5, $y + 2, 60, 17, $SS_RIGHT)
+			$txtTip = "ì§€ê¸ˆê¹Œì§€ íšë“í•œ ì´ 'ë‹¤í¬ì—˜ë¦­ì„œ'ì–‘" & @CRLF & "(ì—…ê·¸ë ˆì´ë“œì— ì†Œëª¨ëœ ìì›ë„ í¬í•¨ë˜ì–´ ë‚˜íƒ€ë‚©ë‹ˆë‹¤.)"
 			GUICtrlSetTip(-1, $txtTip)
 		$y +=20
 		GUICtrlCreateIcon ($pIconLib, $eIcnTrophy, $x + 60, $y, 16, 16)
-		$lblTrophyLoot = GUICtrlCreateLabel("", $x, $y + 2, 55, 17, $SS_RIGHT)
-			$txtTip = "Áö±İ±îÁö È¹µæÇÑ ÃÑ 'Æ®·ÎÇÇ'"
+		$lblTrophyLoot = GUICtrlCreateLabel("", $x - 5, $y + 2, 60, 17, $SS_RIGHT)
+			$txtTip = "ì§€ê¸ˆê¹Œì§€ íšë“í•œ ì´ 'íŠ¸ë¡œí”¼'"
 			GUICtrlSetTip(-1, $txtTip)
 	GUICtrlCreateGroup("", -99, -99, 1, 1)
 	$x = 375
 	$y = 150
-	$grpHourlyStats = GUICtrlCreateGroup("Åë°è(/h)", $x - 20, $y - 20, 105, 105)
-		$lblHourlyStatsTemp = GUICtrlCreateLabel("¸Å °ø°İ¸¶´Ù" & @CRLF & "¾àÅ»ÇöÈ²À»" & @CRLF & "ÃÖ½ÅÈ­ÇÏ¿©" & @CRLF & "ÀÔ·ÂÇÕ´Ï´Ù.", $x - 5, $y + 5, 100, 65, BITOR($SS_LEFT, $BS_MULTILINE))
+	$grpHourlyStats = GUICtrlCreateGroup("í†µê³„(/h)", $x - 20, $y - 20, 105, 105)
+		$lblHourlyStatsTemp = GUICtrlCreateLabel("ë§¤ ê³µê²©ë§ˆë‹¤" & @CRLF & "ì•½íƒˆí˜„í™©ì„" & @CRLF & "ìµœì‹ í™”í•˜ì—¬" & @CRLF & "ì…ë ¥í•©ë‹ˆë‹¤.", $x - 5, $y + 5, 100, 65, BITOR($SS_LEFT, $BS_MULTILINE))
 		GUICtrlCreateIcon ($pIconLib, $eIcnGold, $x + 60, $y, 16, 16)
 			$lblHourlyStatsGold = GUICtrlCreateLabel("", $x, $y + 2, 55, 17, $SS_RIGHT)
-			$txtTip = "½Ã°£´ç ¾àÅ»ÇÑ '°ñµå'¾ç"
+			$txtTip = "ì‹œê°„ë‹¹ ì•½íƒˆí•œ 'ê³¨ë“œ'ì–‘"
 			GUICtrlSetTip(-1, $txtTip)
 		$y +=20
 		GUICtrlCreateIcon ($pIconLib, $eIcnElixir, $x + 60, $y, 16, 16)
 		$lblHourlyStatsElixir = GUICtrlCreateLabel("", $x, $y + 2, 55, 17, $SS_RIGHT)
-			$txtTip = "½Ã°£´ç ¾àÅ»ÇÑ '¿¤¸¯¼­'¾ç"
+			$txtTip = "ì‹œê°„ë‹¹ ì•½íƒˆí•œ 'ì—˜ë¦­ì„œ'ì–‘"
 			GUICtrlSetTip(-1, $txtTip)
 		$y +=20
 		$picHourlyStatsDark = GUICtrlCreateIcon ($pIconLib, $eIcnDark, $x + 60, $y, 16, 16)
 		$lblHourlyStatsDark = GUICtrlCreateLabel("", $x, $y + 2, 55, 17, $SS_RIGHT)
-			$txtTip = "½Ã°£´ç ¾àÅ»ÇÑ '´ÙÅ©¿¤¸¯¼­'¾ç"
+			$txtTip = "ì‹œê°„ë‹¹ ì•½íƒˆí•œ 'ë‹¤í¬ì—˜ë¦­ì„œ'ì–‘"
 			GUICtrlSetTip(-1, $txtTip)
 		$y +=20
 		GUICtrlCreateIcon ($pIconLib, $eIcnTrophy, $x + 60, $y, 16, 16)
 		$lblHourlyStatsTrophy = GUICtrlCreateLabel("", $x, $y + 2, 55, 17, $SS_RIGHT)
-			$txtTip = "½Ã°£´ç È¹µæÇÑ 'Æ®·ÎÇÇ'"
+			$txtTip = "ì‹œê°„ë‹¹ íšë“í•œ 'íŠ¸ë¡œí”¼'"
 			GUICtrlSetTip(-1, $txtTip)
     GUICtrlCreateGroup("", -99, -99, 1, 1)
 
 	$x = 270
 	$y = 240
-#cs $btnMoreStats = GUICtrlCreateButton ("Ãß°¡ÇöÈ²", $x, $y, 60,21)
+#cs $btnMoreStats = GUICtrlCreateButton ("ì¶”ê°€í˜„í™©", $x, $y, 60,21)
 		GUICtrlSetState(-1, $GUI_DISABLE)
 	$x += 60
-	$btnExportCSV = GUICtrlCreateButton (".CSVº¸°í", $x, $y, 60,21)
+	$btnExportCSV = GUICtrlCreateButton (".CSVë³´ê³ ", $x, $y, 60,21)
 		GUICtrlSetState(-1, $GUI_DISABLE)
 #ce
-	$btnResetStats = GUICtrlCreateButton ("ÇöÈ²ÃÊ±âÈ­", $x-5, $y, 70,21)
+	$btnResetStats = GUICtrlCreateButton ("í˜„í™©ì´ˆê¸°í™”", $x-5, $y, 70,21)
 		GUICtrlSetOnEvent(-1, "btnResetStats")
-		GUICtrlSetTip(-1, "¸ğµç ÇöÈ²À» ÃÊ±âÈ­ ÇÕ´Ï´Ù.")
+		GUICtrlSetTip(-1, "ëª¨ë“  í˜„í™©ì„ ì´ˆê¸°í™” í•©ë‹ˆë‹¤.")
 		GUICtrlSetState(-1, $GUI_DISABLE)
 	$x += 65
 	$btnLoots = GUICtrlCreateButton ("Loots", $x, $y, 60,21)
@@ -142,43 +142,43 @@ Local $x = 30, $y = 150
 
 	$x = 30
 	$y = 280
-	$grpStatsMisc = GUICtrlCreateGroup("±âÅ¸ÇöÈ²", $x - 20, $y - 20, 450, 60)
+	$grpStatsMisc = GUICtrlCreateGroup("ê¸°íƒ€í˜„í™©", $x - 20, $y - 20, 450, 60)
 		$y -=2
 		GUICtrlCreateIcon ($pIconLib, $eIcnTH1, $x - 10, $y + 7, 24, 24)
 		GUICtrlCreateIcon ($pIconLib, $eIcnTH10, $x + 16, $y + 7, 24, 24)
-        $lblvillagesattacked = GUICtrlCreateLabel("°ø°İ :", $x + 45, $y + 2, -1, 17)
+        $lblvillagesattacked = GUICtrlCreateLabel("ê³µê²© :", $x + 45, $y + 2, -1, 17)
         $lblresultvillagesattacked = GUICtrlCreateLabel("0", $x + 65, $y + 2, 60, 17, $SS_RIGHT)
-			$txtTip = "°ø°İÇÑ ¸¶À»ÀÇ ¼ö"
+			$txtTip = "ê³µê²©í•œ ë§ˆì„ì˜ ìˆ˜"
 			GUICtrlSetTip(-1, $txtTip)
 		$y += 17
-        $lblvillagesskipped = GUICtrlCreateLabel("½ºÅµ :", $x + 45, $y + 2, -1, 17)
+        $lblvillagesskipped = GUICtrlCreateLabel("ìŠ¤í‚µ :", $x + 45, $y + 2, -1, 17)
         $lblresultvillagesskipped = GUICtrlCreateLabel("0", $x + 65, $y + 2, 60, 17, $SS_RIGHT)
-			$txtTip = "°ø°İÇÏÁö ¾Ê°í ½ºÅµÇÑ ¸¶À»ÀÇ ¼ö"
+			$txtTip = "ê³µê²©í•˜ì§€ ì•Šê³  ìŠ¤í‚µí•œ ë§ˆì„ì˜ ìˆ˜"
 			GUICtrlSetTip(-1, $txtTip)
 		$x = 175
 		$y = 278
 		GUICtrlCreateIcon ($pIconLib, $eIcnTrophy, $x, $y, 16, 16)
-        $lbltrophiesdropped = GUICtrlCreateLabel("Æ®·ÎÇÇ :", $x + 20, $y + 2, -1, 17)
+        $lbltrophiesdropped = GUICtrlCreateLabel("íŠ¸ë¡œí”¼ :", $x + 20, $y + 2, -1, 17)
         $lblresulttrophiesdropped = GUICtrlCreateLabel("0", $x + 95, $y + 2, 30, 17, $SS_RIGHT)
-			$txtTip = "'Æ®·ÎÇÇ¹üÀ§¼³Á¤'(±âÅ¸¼³Á¤ÅÇ)À¸·Î ÀÎÇÑ Æ®·ÎÇÇ ÀÛ¾÷ È½¼ö."
+			$txtTip = "'íŠ¸ë¡œí”¼' ì¦ê° ê°’"
 			GUICtrlSetTip(-1, $txtTip)
         $y += 17
         GUICtrlCreateIcon ($pIconLib, $eIcnHourGlass, $x, $y, 16, 16)
-        $lblruntime = GUICtrlCreateLabel("½ÇÇà½Ã°£ : ", $x + 20, $y + 2, -1, 17)
+        $lblruntime = GUICtrlCreateLabel("ì‹¤í–‰ì‹œê°„ : ", $x + 20, $y + 2, -1, 17)
         $lblresultruntime = GUICtrlCreateLabel("00:00:00", $x + 65, $y + 2, 60, 17, $SS_RIGHT)
-			$txtTip = "ÇÁ·Î±×·¥ ±¸µ¿ ½Ã°£"
+			$txtTip = "í”„ë¡œê·¸ë¨ êµ¬ë™ ì‹œê°„"
 			GUICtrlSetTip(-1, $txtTip)
 		$x = 330
 		$y = 278
 		GUICtrlCreateIcon ($pIconLib, $eIcnWall, $x - 7, $y + 7, 24, 24)
-        $lblwallbygold = GUICtrlCreateLabel("'°ñµå'»ç¿ë :", $x + 20, $y + 2, -1, 17)
+        $lblwallbygold = GUICtrlCreateLabel("'ê³¨ë“œ'ì‚¬ìš© :", $x + 20, $y + 2, -1, 17)
 		$lblWallgoldmake =  GUICtrlCreateLabel("0", $x + 55, $y + 2, 60, 17, $SS_RIGHT)
-			$txtTip = "'°ñµå'¸¦ »ç¿ëÇÏ¿© ¾÷±×·¹ÀÌµåÇÑ ¼ºº®ÀÇ ¼ö"
+			$txtTip = "'ê³¨ë“œ'ë¥¼ ì‚¬ìš©í•˜ì—¬ ì—…ê·¸ë ˆì´ë“œí•œ ì„±ë²½ì˜ ìˆ˜"
 			GUICtrlSetTip(-1, $txtTip)
 		$y += 17
-		$lblwallbyelixir = GUICtrlCreateLabel("'¿¤¸¯¼­'»ç¿ë :", $x + 20, $y + 2, -1, 17)
+		$lblwallbyelixir = GUICtrlCreateLabel("'ì—˜ë¦­ì„œ'ì‚¬ìš© :", $x + 20, $y + 2, -1, 17)
 		$lblWallelixirmake =  GUICtrlCreateLabel("0", $x + 55, $y + 2, 60, 17, $SS_RIGHT)
-			$txtTip = "'¿¤¸¯¼­'¸¦ »ç¿ëÇÏ¿© ¾÷±×·¹ÀÌµåÇÑ ¼ºº®ÀÇ ¼ö"
+			$txtTip = "'ì—˜ë¦­ì„œ'ë¥¼ ì‚¬ìš©í•˜ì—¬ ì—…ê·¸ë ˆì´ë“œí•œ ì„±ë²½ì˜ ìˆ˜"
 			GUICtrlSetTip(-1, $txtTip)
         ;$lbloutofsync = GUICtrlCreateLabel("Out Of Sync :", 260, 263, 100, 17) ; another stats next post
         ;$lblresultoutofsync = GUICtrlCreateLabel("0", 380, 263, 60, 17, $SS_RIGHT) ; another stats next post
