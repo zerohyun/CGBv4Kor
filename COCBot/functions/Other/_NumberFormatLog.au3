@@ -17,11 +17,11 @@ local $SpacedLog = ""
 
 
 If $SeparateArray[0] = 3 then
-$SpacedLog = $SeparateArray[3] & " " & $SeparateArray[2] & " " & $SeparateArray[1]
+$SpacedLog = $SeparateArray[1] & " " & $SeparateArray[2] & " " & $SeparateArray[3]
 EndIf
 
 If $SeparateArray[0] =2 then
-$SpacedLog = $SeparateArray[2] & " " & $SeparateArray[1]
+$SpacedLog = $SeparateArray[1] & " " & $SeparateArray[2]
 EndIf
 
 If $SeparateArray[0] =1 then

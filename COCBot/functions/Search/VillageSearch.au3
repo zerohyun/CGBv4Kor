@@ -237,7 +237,7 @@ $Is_ClientSyncError = True
 	SetLog(_PadStringCenter(" Search Complete ", 50, "="), $COLOR_BLUE)
 	PushMsg("MatchFound")
 	$Is_ClientSyncError = False
-	$SearchCount = 0
+	;$SearchCount = 0
 
 	; TH Detection Check Once Conditions
 	If $OptBullyMode = 0 And $OptTrophyMode = 0 And $iChkMeetTH[$iMatchMode] = 0 And $iChkMeetTHO[$iMatchMode] = 0 And $chkATH = 1 Then

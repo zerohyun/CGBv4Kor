@@ -131,5 +131,5 @@ Func AttackReport()
 		EndIf
 	EndIf
 
-
+	$SearchCount = 0
 EndFunc   ;==>AttackReport
