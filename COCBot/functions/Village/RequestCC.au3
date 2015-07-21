@@ -1,0 +1,125 @@
+; #FUNCTION# ====================================================================================================================
+; Name ..........: RequestCC
+; Description ...:
+; Syntax ........: RequestCC()
+; Parameters ....:
+; Return values .: None
+; Author ........: Code Monkey #73
+; Modified ......: (2015-06) Sardo
+; Remarks .......: This file is part of ClashGameBot. Copyright 2015
+;                  ClashGameBot is distributed under the terms of the GNU GPL
+; Related .......:
+; Link ..........:
+; Example .......: No
+; ===============================================================================================================================
+Func RequestCC()
+
+	If $ichkRequest <> 1 Or $bDonationEnabled = False Then
+		Return
+	EndIf
+
+	If $iPlannedRequestCCHoursEnable = 1 Then
+		Local $hour = StringSplit(_NowTime(4), ":", $STR_NOCOUNT)
+		If $iPlannedRequestCCHours[$hour[0]] = 0 Then
+			SetLog("유닛요청이 설정되지 않았습니다.", $COLOR_GREEN)
+			Return ; exit func if no planned donate checkmarks
+		EndIf
+	EndIf
+
+	SetLog("클랜성 유닛 지원요청!!", $COLOR_BLUE)
+
+	;open army overview
+	Click($aArmyTrainButton[0], $aArmyTrainButton[1], 1, 0, "#9999")
+
+	;wait to see army overview
+	Local $icount = 0
+	While Not ( _ColorCheck(_GetPixelColor($aArmyOverviewTest[0], $aArmyOverviewTest[1], True), Hex($aArmyOverviewTest[2], 6), $aArmyOverviewTest[3]))
+		If _Sleep(100) Then ContinueLoop
+		$icount = $icount + 1
+		If $icount = 5 Then ExitLoop
+	WEnd
+	If $icount = 5 And $debugSetlog = 1 Then Setlog("RequestCC warning 1")
+
+	$color = _GetPixelColor($aRequestTroopsAO[0], $aRequestTroopsAO[1], True)
+	If _ColorCheck($color, Hex($aRequestTroopsAO[2], 6), $aRequestTroopsAO[5]) Then
+		;can make a request
+		Local $x = _makerequest()
+	ElseIf _ColorCheck($color, Hex($aRequestTroopsAO[3], 6), $aRequestTroopsAO[5]) Then
+		;request has allready been made
+		SetLog("유닛요청중입니다.")
+	ElseIf _ColorCheck($color, Hex($aRequestTroopsAO[4], 6), $aRequestTroopsAO[5]) Then
+		;clan full or not in clan
+		SetLog("클랜성이 가득찼거나 클랜에 가입하지 않았습니다.")
+	Else
+		;no button request found
+		SetLog("유닛요청버튼을 찾을 수 없습니다.")
+	EndIf
+
+	;exit from army overview
+	Click(1, 1, 2, 0, "#9999")
+
+EndFunc   ;==>RequestCC
+
+
+Func _makerequest()
+	;click button request troops
+	Click($aRequestTroopsAO[0], $aRequestTroopsAO[1], 1, 0, "#9999") ;Select text for request
+
+	;wait window
+	Local $icount = 0
+	While Not ( _ColorCheck(_GetPixelColor($aCancRequestCCBtn[0], $aCancRequestCCBtn[1], True), Hex($aCancRequestCCBtn[2], 6), $aCancRequestCCBtn[3]))
+		_Sleep(100)
+		$icount = $icount + 1
+		If $icount = 5 Then ExitLoop
+	WEnd
+	If $icount = 5 Then
+		SetLog("유닛요청을 할 수 없거나 이미 요청한 상태입니다.", $COLOR_RED)
+		Click(1, 1, 2, 0, "#0257")
+	Else
+		If $sTxtRequest <> "" Then
+			Click($atxtRequestCCBtn[0], $atxtRequestCCBtn[1], 1, 0, "#0254") ;Select text for request
+			_Sleep(250)
+			$sTxtRequestK=RequestK($sTxtRequest)
+			ControlSend($Title, "", "", $sTxtRequestK, 0)
+		EndIf
+		$icount = 0
+		While Not _ColorCheck(_GetPixelColor($aSendRequestCCBtn[0], $aSendRequestCCBtn[1], True), Hex(0x5fac10, 6), 20)
+			_Sleep(50)
+			$icount += 1
+			If $icount = 100 Then ExitLoop
+		WEnd
+		If $icount = 100 Then
+			If $debugSetlog = 1 Then SetLog("send request button not found")
+			;emergency exit
+		    checkMainScreen(False)
+		EndIf
+		Click($aSendRequestCCBtn[0], $aSendRequestCCBtn[1], 1, 100, "#0256") ; click send button
+	EndIf
+
+EndFunc   ;==>_makerequest
+
+Func RequestK(byRef $Text) ; make by Zerohyun
+	Local $charSta[19] = ["r", "R", "s", "e", "E", "f", "a", "q", "Q", "t", "T", "d", "w", "W", "c", "z", "x", "v", "g"]
+    Local $charCen[21] =["k", "o", "i", "O", "j", "p", "u", "P", "h", "hk", "ho", "hl", "y", "n", "nj", "np", "nl", "b", "m", "ml", "l"]
+	Local $charEnd[28] = ["", "r", "R", "rt", "s", "sw", "sg", "e", "f", "fr", "fa", "fq", "ft", "fx", "fv", "fg", "a", "q", "qt", "t", "T", "d", "w", "c", "z", "x", "v", "g"]
+	Local $charbase = "44032"
+	Local $sArray = StringLen($Text)
+	Local $Stringch = ""
+
+	for $i=0 to $sArray-1
+
+		Local $aArray = StringToASCIIArray($Text)
+		if $aArray[$i] >= $charbase then
+			$sArrayE = Mod(($aArray[$i]-$charbase),28)
+			$sArrayC = Mod(($aArray[$i]-$charbase-$sArrayE)/28,21)
+			$sArrayS = ((($aArray[$i]-$charbase-$sArrayE)/28)-$sArrayC)/21
+			$ChEnd = $charEnd[$sArrayE]
+			$ChCen = $charCen[$sArrayC]
+			$ChSta = $charSta[$sArrayS]
+			$Stringch = $Stringch & $ChSta & $ChCen & $ChEnd
+		Else
+			$Stringch = $Stringch & chr($aArray[$i])
+		EndIf
+	Next
+	Return $Stringch
+EndFunc   ;==>RequestK
